@@ -71,5 +71,25 @@ function breadthFirst(tree) {
   }
   return result
 }
+function depthFirst(tree) {
+  let result = []
+  function depth(tree) {
+    result.push(getValue(tree))
+    getChildren(tree).map(child => depth(child))
+  }
+  depth(tree)
+  return result
+}
+function depthFirstPost(tree) {
+  let result = []
+  function depthPost(tree) {
+    getChildren(tree).map(child => depthPost(child))
+    result.push(getValue(tree))
+  }
+  depthPost(tree)
+  return result
+}
 module.exports.depthFirstIterator = depthFirstIterator
 module.exports.breadthFirst = breadthFirst
+module.exports.depthFirst = depthFirst
+module.exports.depthFirstPost = depthFirstPost
