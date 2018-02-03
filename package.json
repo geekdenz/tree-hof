@@ -4,7 +4,7 @@
   "description": "Higher Order Functions for trees. Tree reductions and iterators.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "tree",
@@ -16,6 +16,7 @@
   "author": "Tim-Hinnerk Heuer",
   "license": "MIT",
   "devDependencies": {
+    "expect": "^22.1.0",
     "mocha": "^5.0.0"
   }
 }
