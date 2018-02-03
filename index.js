@@ -74,7 +74,8 @@ function breadthFirst(tree) {
 function depthFirst(tree) {
   let result = []
   function depth(tree) {
-    result.push(getValue(tree))
+    let val = getValue(tree)
+    val !== null && result.push(val)
     getChildren(tree).map(child => depth(child))
   }
   depth(tree)
@@ -84,12 +85,30 @@ function depthFirstPost(tree) {
   let result = []
   function depthPost(tree) {
     getChildren(tree).map(child => depthPost(child))
-    result.push(getValue(tree))
+    let val = getValue(tree)
+    val !== null && result.push(val)
   }
   depthPost(tree)
+  return result
+}
+function depthFirstIn(tree) {
+  let result = []
+  function depthIn(tree) {
+    let children = getChildren(tree)
+    let half = Math.ceil(children.length / 2)
+    let left = children.slice(0, half)
+    let right = children.slice(half)
+    //console.log('half',half,left.value,right.value)
+    left.map(child => depthIn(child))
+    let val = getValue(tree)
+    val !== null && result.push(val)
+    right.map(child => depthIn(child))
+  }
+  depthIn(tree)
   return result
 }
 module.exports.depthFirstIterator = depthFirstIterator
 module.exports.breadthFirst = breadthFirst
 module.exports.depthFirst = depthFirst
+module.exports.depthFirstIn = depthFirstIn
 module.exports.depthFirstPost = depthFirstPost

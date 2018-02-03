@@ -4,6 +4,7 @@ const index = require('../index')
 //const depthFirstIterator = index.depthFirstIterator
 const breadthFirst = index.breadthFirst
 const depthFirst = index.depthFirst
+const depthFirstIn = index.depthFirstIn
 const depthFirstPost = index.depthFirstPost
 describe('Tree', function() {
   let tree = {
@@ -37,6 +38,7 @@ describe('Tree', function() {
           {
             value: 'a',
             children: [
+              {},
               {
                 value: 'd'
               }
@@ -50,6 +52,7 @@ describe('Tree', function() {
       {
         value: 'k',
         children: [
+          {},
           {
             value: 'z'
           }
@@ -86,8 +89,56 @@ describe('Tree', function() {
     })
   })
   describe('Depth first (post order) on betterTree', () => {
-    it('should be ordered: ', () => {
-      expect(depthFirstPost(betterTree)).toEqual(['j', 'f', 'a', 'd', 'h', 'k', 'z'])
+    it('should be ordered: d, a, h, f, z, k, j', () => {
+      expect(depthFirstPost(betterTree)).toEqual(['d', 'a', 'h', 'f', 'z', 'k', 'j'])
+    })
+  })
+  describe('Depth first (in order) on betterTree', () => {
+
+    it('should be ordered: a, d, f, h, j, k, z', () => {
+      expect(depthFirstIn(betterTree)).toEqual(['a', 'd', 'f', 'h', 'j', 'k', 'z'])
+    })
+
+    it('should be [A, B, C, D, E, F, G, H, I]', () => {
+      const myTree = {
+        value: 'F',
+        children: [
+          {
+            value: 'B',
+            children: [
+              {
+                value: 'A'
+              },
+              {
+                value: 'D',
+                children: [
+                  {
+                    value: 'C'
+                  },
+                  {
+                    value: 'E'
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            value: 'G',
+            children: [
+              {},
+              {
+                value: 'I',
+                children: [
+                  {
+                    value: 'H'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+      expect(depthFirstIn(myTree)).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'])
     })
   })
   describe('Breadth first search', () => {
