@@ -6,7 +6,7 @@
      - [Depth first (post order) on betterTree](#tree-depth-first-post-order-on-bettertree)
      - [Depth first (in order) on betterTree](#tree-depth-first-in-order-on-bettertree)
      - [Breadth first search](#tree-breadth-first-search)
-     - [Depth first iterator](#tree-depth-first-iterator)
+     - [NO Depth first iterator](#tree-no-depth-first-iterator)
 <a name=""></a>
  
 <a name="tree"></a>
@@ -95,5 +95,14 @@ should return [A,B,C,D,E] with getValue, getChildren.
 expect(index_1.breadthFirst(tree, function (n) { return n.value; }, function (n) { return n.children; })).toEqual(['A', 'B', 'C', 'D', 'E']);
 ```
 
-<a name="tree-depth-first-iterator"></a>
-## Depth first iterator
+<a name="tree-no-depth-first-iterator"></a>
+## NO Depth first iterator
+should be ordered: j, f, a, d, h, k, z when looped.
+
+```js
+var items = ['j', 'f', 'a', 'd', 'h', 'k', 'z'];
+var realItems = [];
+index_1.depthFirst(betterTree).forEach(function (n) { return realItems.push(n); });
+expect(realItems).toEqual(items);
+```
+

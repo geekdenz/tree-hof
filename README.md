@@ -1,6 +1,8 @@
 # tree-hof
 JS/TS Tree Higher Order Functions
 
+### [Test Report](https://github.com/geekdenz/tree-hof/blob/master/test-report.md)
+
 ## Why?
 
  * Adds big value to your project, because tree algorithms can be challenging to get right easily.

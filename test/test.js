@@ -158,12 +158,18 @@ describe('Tree', function () {
             expect(index_1.breadthFirst(tree, function (n) { return n.value; }, function (n) { return n.children; })).toEqual(['A', 'B', 'C', 'D', 'E']);
         });
     });
-    describe('Depth first iterator', function () {
+    // Deliberately cut:
+    describe('NO Depth first iterator', function () {
         it('should be ordered: j, f, a, d, h, k, z when looped', function () {
             var items = ['j', 'f', 'a', 'd', 'h', 'k', 'z'];
-            var realItems = index_1.depthFirstIterator(betterTree).slice();
+            var realItems = [];
+            index_1.depthFirst(betterTree).forEach(function (n) { return realItems.push(n); });
             expect(realItems).toEqual(items);
         });
     });
+    // because it complicates and at the time of writing was not
+    // supported in TypeScript.
+    // Also, this does not add value of even performance, let
+    // alone readability or anything else.
 });
 //# sourceMappingURL=test.js.map
