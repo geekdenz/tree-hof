@@ -10,7 +10,7 @@ JS/TS Tree Higher Order Functions
 
 ## What?
 
- * Tree to array transformers.
+ * Simple tree to array transformers.
  * Breadth first traversal.
  * All depth first traversals (pre-/in-/post- order).
  * User-defined ```getValue()``` and ```getChildren()``` functions!
@@ -19,7 +19,7 @@ JS/TS Tree Higher Order Functions
 ## How?
 
 ```typescript
-import { breadthFirst } from 'tree-hof'
+import { breadthFirst, depthFirst } from 'tree-hof'
 const tree = {
   value: 'A',
   children: [{
@@ -28,4 +28,16 @@ const tree = {
 }
 
 breadthFirst(tree).forEach((n) => console.log(n))
+
+const customTree = {
+  item: 'A',
+  leftChild: {
+    item: 'B'
+  },
+  rightChild: {
+    item: 'C'
+  }
+}
+
+depthFirst(customTree, (n) => n.item, (n) => [n.leftChild,n.rightChild]).map((v) => console.log(v))
 ```

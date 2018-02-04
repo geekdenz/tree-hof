@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
-var assert = require('assert');
-var expect = require('expect');
+//import * from 'assert';
+var expect = require("expect");
 //const index = require('../index')
 var index_1 = require("../index");
 //const depthFirstIterator = index.depthFirstIterator

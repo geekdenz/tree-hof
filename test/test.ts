@@ -1,5 +1,5 @@
-const assert = require('assert');
-const expect = require('expect')
+//import * from 'assert';
+import * as expect from 'expect';
 //const index = require('../index')
 import {
   breadthFirst,
