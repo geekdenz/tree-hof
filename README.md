@@ -1,6 +1,10 @@
 # tree-hof
 JS/TS Tree Higher Order Functions
 
+# NOTE
+
+PLEASE DO NOT USE JUST YET! I've only started this project yesterday and I believe no version is properly usable yet. It will be soon, so please check from version 1.2.0.
+
 ## Why?
 
  * Wanted to create an easy to use, generic tree traversal library.
