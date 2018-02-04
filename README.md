@@ -1,6 +1,8 @@
 # tree-hof
 JS/TS Tree Higher Order Functions
 
+[![Build Status](https://travis-ci.org/geekdenz/tree-hof.svg?branch=master)](https://travis-ci.org/geekdenz/tree-hof)
+
 ### [Test Report](https://github.com/geekdenz/tree-hof/blob/master/test-report.md)
 
 ## Why?
