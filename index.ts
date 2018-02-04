@@ -64,9 +64,9 @@ function isEmpty<T extends any>(queue: T[]) {
 
 export function breadthFirst<T extends any, V extends any>(tree: T,
     getValue = (obj: T) => obj.value,
-    getChildren = (obj: T) => obj.children) {
+    getChildren = (obj: T) => obj.children): V[] {
   const queue = [tree];
-  const result = [];
+  const result: V[] = [];
   let traverse;
   while (!isEmpty(queue)) {
     traverse = queue.shift();
@@ -79,7 +79,7 @@ export function breadthFirst<T extends any, V extends any>(tree: T,
 
 export function depthFirst<T extends any, V extends any>(tree: T,
     getValue: (n: T) => V = obj => obj.value,
-    getChildren: (n: T) => T[] = obj => obj.children) {
+    getChildren: (n: T) => T[] = obj => obj.children): V[] {
   let result: V[] = []
   function depth(tree: T) {
     let val = tree && getValue(tree) || null;
@@ -92,7 +92,7 @@ export function depthFirst<T extends any, V extends any>(tree: T,
 }
 export function depthFirstPost<T extends any, V extends any>(tree: T,
     getValue: (n: T) => V = (obj) => obj.value,
-    getChildren: (n: T) => T[] = (obj) => obj.children) {
+    getChildren: (n: T) => T[] = (obj) => obj.children): V[] {
   let result: V[] = [];
   function depthPost(tree: any) {
     const children = getChildren(tree) || [];
@@ -105,7 +105,7 @@ export function depthFirstPost<T extends any, V extends any>(tree: T,
 }
 export function depthFirstIn<T extends any, V extends any>(tree: T,
     getValue: (n: T) => V = (obj) => obj.value,
-    getChildren: (n: T) => T[] = (obj) => obj.children) {
+    getChildren: (n: T) => T[] = (obj) => obj.children): V[] {
   let result: V[] = []
   function depthIn(tree: T) {
     let children = getChildren(tree) || [];
@@ -121,3 +121,18 @@ export function depthFirstIn<T extends any, V extends any>(tree: T,
   depthIn(tree);
   return result;
 }
+
+/**
+// The following does not add value and is cut:
+export function depthFirstIterator<T extends any, V extends any>(tree: T,
+    getValue: (n: T) => V = (obj) => obj.value,
+    getChildren: (n: T) => T[] = (obj) => obj.children)  {
+  let items: V[] = depthFirst(tree, getValue, getChildren);
+  function * it() {
+    for (let item of items) {
+      yield item;
+    }
+  }
+  return it();
+}
+*/

@@ -1,21 +1,28 @@
 {
   "name": "tree-hof",
-  "version": "1.2.0",
-  "description": "Higher Order Functions for trees. Tree reductions and iterators.",
+  "version": "1.2.1",
+  "description": "Higher Order Functions for trees. Tree reductions to simplify processing.",
   "main": "index.js",
   "scripts": {
     "test": "ts-mocha -p . test/*.ts",
     "watch:test": "nodemon --exec \"ts-mocha -p . test/*.ts\"",
-    "watch:tsc": "tsc -w"
+    "watch:tsc": "tsc -w",
+    "min": "java -jar ~/tools/closure-compiler.jar < index.js > tree-hof.min.js"
   },
   "keywords": [
     "tree",
-    "iterator",
     "higher",
     "order",
-    "functions"
+    "functions",
+    "array",
+    "values",
+    "minimalist"
   ],
   "author": "Tim-Hinnerk Heuer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geekdenz/tree-hof"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/expect": "^1.20.2",

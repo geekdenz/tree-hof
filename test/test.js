@@ -158,5 +158,12 @@ describe('Tree', function () {
             expect(index_1.breadthFirst(tree, function (n) { return n.value; }, function (n) { return n.children; })).toEqual(['A', 'B', 'C', 'D', 'E']);
         });
     });
+    describe('Depth first iterator', function () {
+        it('should be ordered: j, f, a, d, h, k, z when looped', function () {
+            var items = ['j', 'f', 'a', 'd', 'h', 'k', 'z'];
+            var realItems = index_1.depthFirstIterator(betterTree).slice();
+            expect(realItems).toEqual(items);
+        });
+    });
 });
 //# sourceMappingURL=test.js.map

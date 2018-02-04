@@ -5,7 +5,8 @@ import {
   breadthFirst,
   depthFirst,
   depthFirstIn,
-  depthFirstPost
+  depthFirstPost,
+  depthFirstIterator
 } from '../index'
 //const depthFirstIterator = index.depthFirstIterator
 /*
@@ -163,4 +164,19 @@ describe('Tree', function() {
       expect(breadthFirst(tree, n => n.value, n => n.children)).toEqual(['A','B','C','D','E'])
     })
   })
+
+  /*
+  // Deliberately cut:
+  describe('Depth first iterator', () => {
+    it('should be ordered: j, f, a, d, h, k, z when looped', () => {
+      const items = ['j', 'f', 'a', 'd', 'h', 'k', 'z']
+      const realItems = [...depthFirstIterator(betterTree)]
+      expect(realItems).toEqual(items)
+    })
+  })
+  // because it complicates and at the time of writing was not
+  // supported in TypeScript.
+  // Also, this does not add value of even performance, let
+  // alone readability or anything else.
+  */
 })

@@ -1,16 +1,9 @@
 # tree-hof
 JS/TS Tree Higher Order Functions
 
-# NOTE
-
-PLEASE NOTE! I've only started this project yesterday (2018-02-03) and I believe no version before 1.2.0 is working properly.
-
-This has been tested with binary trees only but should work with
-any number of children. The example is in TypeScript only at the
-moment. However, it should also work with vanilla JS.
-
 ## Why?
 
+ * Adds big value to your project, because tree algorithms can be challenging to get right easily.
  * Wanted to create an easy to use, generic tree traversal library.
  * Felt the existing ones were not complete.
  * Need easy tree traversal in many projects.
@@ -22,7 +15,9 @@ moment. However, it should also work with vanilla JS.
  * Breadth first traversal.
  * All depth first traversals (pre-/in-/post- order).
  * User-defined ```getValue()``` and ```getChildren()``` functions!
- * Iterators (not yet). I am unsure if this will happen.
+ * TypeScript and JavaScript compatible.
+ * NO Iterators. Higher order functions make for loops obsolete. Just use ```Array.forEach``` if you have to and ```Array.map``` etc. otherwise.
+ * Just over 6KB unminified! 2.8KB minified!
 
 ## How?
 
@@ -57,3 +52,17 @@ depthFirst(customTree, (n) => n.item,
   (n) => [n.leftChild,n.rightChild])
   .map((v) => console.log(v))
 ```
+
+
+
+### NOTE
+
+If you have tried this before and it didn't work, please try
+again. It should now be working. It has no dependencies and I
+believe adds a lot of value while being very small.
+
+This has been tested with binary trees only but should work with
+any number of children. There are unit tests.
+
+The example above is in TypeScript only at the
+moment. However, it should also work with vanilla JS or any library.
