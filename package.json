@@ -1,6 +1,6 @@
 {
   "name": "tree-hof",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Higher Order Functions for trees. Tree reductions and iterators.",
   "main": "index.js",
   "scripts": {
