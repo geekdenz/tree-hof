@@ -145,3 +145,17 @@ export function mapBreadthFirst<T extends any, V extends any>(tree: T,
     children.map((child: any) => queue.push(child));
   }
 }
+
+export function bf<T extends any, V extends any>(
+  tree: T,
+  getValue = (obj: T) => obj.value,
+  getChildren = (obj: T) => obj.children
+): {map: (item: V, index?: number) => V[]} {
+  return {
+    map: (item: V, index?: number) => {
+      const items: V[] = [];
+      mapBreadthFirst(tree, (item, index) => items[index] = item);
+      return items;
+    }
+  }
+}

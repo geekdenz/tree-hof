@@ -179,5 +179,13 @@ describe('Tree', function () {
             index_1.mapBreadthFirst(tree, f);
         });
     });
+    describe('bf(tree).map', function () {
+        it('should return [A,B,C,D,E]', function () {
+            var expected = ['A', 'B', 'C', 'D', 'E'];
+            var count = 0;
+            var f = function (item) { return expect(item).toEqual(expected[count++]); };
+            expect(index_1.bf(tree).map(function (item) { return item; })).toEqual(expected);
+        });
+    });
 });
 //# sourceMappingURL=test.js.map

@@ -6,7 +6,8 @@ import {
   depthFirst,
   depthFirstIn,
   depthFirstPost,
-  mapBreadthFirst
+  mapBreadthFirst,
+  bf
 } from '../index'
 //const depthFirstIterator = index.depthFirstIterator
 /*
@@ -185,6 +186,14 @@ describe('Tree', function() {
       let count = 0;
       const f = (item: string) => expect(item).toEqual(expected[count++])
       mapBreadthFirst(tree, f)
+    })
+  })
+  describe('bf(tree).map', () => {
+    it('should return [A,B,C,D,E]', () => {
+      const expected = ['A','B','C','D','E'];
+      let count = 0;
+      const f = (item: string) => expect(item).toEqual(expected[count++])
+      expect(bf(tree).map((item: string) => item)).toEqual(expected)
     })
   })
 })

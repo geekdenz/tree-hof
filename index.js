@@ -144,4 +144,16 @@ function mapBreadthFirst(tree, func, getValue, getChildren) {
     }
 }
 exports.mapBreadthFirst = mapBreadthFirst;
+function bf(tree, getValue, getChildren) {
+    if (getValue === void 0) { getValue = function (obj) { return obj.value; }; }
+    if (getChildren === void 0) { getChildren = function (obj) { return obj.children; }; }
+    return {
+        map: function (item, index) {
+            var items = [];
+            mapBreadthFirst(tree, function (item, index) { return items[index] = item; });
+            return items;
+        }
+    };
+}
+exports.bf = bf;
 //# sourceMappingURL=index.js.map
