@@ -63,15 +63,8 @@ function isEmpty(queue) {
 function breadthFirst(tree, getValue, getChildren) {
     if (getValue === void 0) { getValue = function (obj) { return obj.value; }; }
     if (getChildren === void 0) { getChildren = function (obj) { return obj.children; }; }
-    var queue = [tree];
     var result = [];
-    var traverse;
-    while (!isEmpty(queue)) {
-        traverse = queue.shift();
-        result.push(getValue(traverse));
-        var children = getChildren(traverse) || [];
-        children.map(function (child) { return queue.push(child); });
-    }
+    mapBreadthFirst(tree, function (item, index) { return result[index] = item; }, getValue, getChildren);
     return result;
 }
 exports.breadthFirst = breadthFirst;
@@ -136,4 +129,19 @@ export function depthFirstIterator<T extends any, V extends any>(tree: T,
   return it();
 }
 */
+function mapBreadthFirst(tree, func, getValue, getChildren) {
+    if (getValue === void 0) { getValue = function (obj) { return obj.value; }; }
+    if (getChildren === void 0) { getChildren = function (obj) { return obj.children; }; }
+    var queue = [tree];
+    var index = 0;
+    var traverse;
+    while (!isEmpty(queue)) {
+        traverse = queue.shift();
+        // result.push(getValue(traverse));
+        func(getValue(traverse), index++);
+        var children = getChildren(traverse) || [];
+        children.map(function (child) { return queue.push(child); });
+    }
+}
+exports.mapBreadthFirst = mapBreadthFirst;
 //# sourceMappingURL=index.js.map

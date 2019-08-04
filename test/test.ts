@@ -5,7 +5,8 @@ import {
   breadthFirst,
   depthFirst,
   depthFirstIn,
-  depthFirstPost
+  depthFirstPost,
+  mapBreadthFirst
 } from '../index'
 //const depthFirstIterator = index.depthFirstIterator
 /*
@@ -177,4 +178,13 @@ describe('Tree', function() {
   // supported in TypeScript.
   // Also, this does not add value of even performance, let
   // alone readability or anything else.
+
+  describe('mapTree', () => {
+    it('should iterate A,B,C,D,E', () => {
+      const expected = ['A','B','C','D','E'];
+      let count = 0;
+      const f = (item: string) => expect(item).toEqual(expected[count++])
+      mapBreadthFirst(tree, f)
+    })
+  })
 })

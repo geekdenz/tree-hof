@@ -65,15 +65,8 @@ function isEmpty<T extends any>(queue: T[]) {
 export function breadthFirst<T extends any, V extends any>(tree: T,
     getValue = (obj: T) => obj.value,
     getChildren = (obj: T) => obj.children): V[] {
-  const queue = [tree];
   const result: V[] = [];
-  let traverse;
-  while (!isEmpty(queue)) {
-    traverse = queue.shift();
-    result.push(getValue(traverse));
-    const children = getChildren(traverse) || [];
-    children.map((child: any) => queue.push(child));
-  }
+  mapBreadthFirst(tree, (item, index) => result[index] = item, getValue, getChildren);
   return result;
 }
 
@@ -136,3 +129,19 @@ export function depthFirstIterator<T extends any, V extends any>(tree: T,
   return it();
 }
 */
+
+export function mapBreadthFirst<T extends any, V extends any>(tree: T,
+    func: (item: V, index?: number) => void,
+    getValue = (obj: T) => obj.value,
+    getChildren = (obj: T) => obj.children): void {
+  const queue: T[] = [tree];
+  let index = 0;
+  let traverse;
+  while (!isEmpty(queue)) {
+    traverse = queue.shift();
+    // result.push(getValue(traverse));
+    func(getValue(traverse), index++)
+    const children = getChildren(traverse) || [];
+    children.map((child: any) => queue.push(child));
+  }
+}

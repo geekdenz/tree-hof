@@ -171,5 +171,13 @@ describe('Tree', function () {
     // supported in TypeScript.
     // Also, this does not add value of even performance, let
     // alone readability or anything else.
+    describe('mapTree', function () {
+        it('should iterate A,B,C,D,E', function () {
+            var expected = ['A', 'B', 'C', 'D', 'E'];
+            var count = 0;
+            var f = function (item) { return expect(item).toEqual(expected[count++]); };
+            index_1.mapBreadthFirst(tree, f);
+        });
+    });
 });
 //# sourceMappingURL=test.js.map

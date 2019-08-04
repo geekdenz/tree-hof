@@ -26,14 +26,14 @@ JS/TS Tree Higher Order Functions
 ## How?
 
 ```typescript
-import { breadthFirst, depthFirst } from 'tree-hof'
+import { breadthFirst, depthFirst, mapBreadthFirst } from 'tree-hof'
 const tree = {
   value: 'A',
   children: [{
     value: 'B'
   }]
 }
-
+mapBreadthFirst(tree, console.log) // directly map on actual traversal
 breadthFirst(tree).forEach((n) => console.log(n))
 
 interface T {
